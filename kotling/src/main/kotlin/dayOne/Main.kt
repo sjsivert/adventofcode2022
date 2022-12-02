@@ -1,30 +1,9 @@
 import java.io.File
 
 /**
- * Read from file
- * Create new list if empty line
- * return list of list of ints
+ * Read from file and return list of list of ints
  */
-fun readFromFile(fileName: String): List<List<Int>> {
-  val file = File(fileName)
-  val list = mutableListOf<List<Int>>()
-  var tempList = mutableListOf<Int>()
-  file.forEachLine {
-    if (it == "") {
-      list.add(tempList)
-      tempList = mutableListOf()
-    } else {
-      tempList.add(it.toInt())
-    }
-  }
-  list.add(tempList)
-  return list
-}
-
-/**
- * Read from file functionally and return list of list of ints
- */
-fun readFromFileFunctional(fileName: String): List<List<Int>> =
+fun readFromFile(fileName: String): List<List<Int>> =
   File(fileName)
     .readLines()
     .fold(mutableListOf(mutableListOf<Int>())) { acc, s ->
@@ -43,16 +22,17 @@ fun List<Int>.returnMaxOf(n: Int): Int =
   this.sorted().takeLast(n).sum()
 
 fun main(args: Array<String>) {
-  println("Hello World!")
-  val bagOfCalories = readFromFileFunctional("src/main/resources/dayOne/calories.txt")
+  val bagOfCalories = readFromFile("src/main/resources/dayOne/calories.txt")
 
-  println("Part one: ${bagOfCalories
+  // Part One
+  bagOfCalories
     .sumListOfLists()
     .max()
-  }")
+    .also { println("Part One: Elf with most calories has: $it") }
 
-  println("Part two: ${bagOfCalories
+  // Part Two
+  bagOfCalories
     .sumListOfLists()
     .returnMaxOf(3)
-  }")
+    .also { println("Part Two: Top three with most calories has: $it in total") }
 }
