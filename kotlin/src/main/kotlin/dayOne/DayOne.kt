@@ -1,3 +1,4 @@
+package dayOne
 import java.io.File
 
 /**
@@ -7,13 +8,13 @@ fun readFromFile(fileName: String): List<List<Int>> =
   File(fileName)
     .readLines()
     .fold(mutableListOf(mutableListOf<Int>())) { acc, s ->
-    if (s == "") {
-      acc.add(mutableListOf())
-    } else {
-      acc.last().add(s.toInt())
+      if (s == "") {
+        acc.add(mutableListOf())
+      } else {
+        acc.last().add(s.toInt())
+      }
+      acc
     }
-    acc
-  }
 
 fun List<List<Int>>.sumListOfLists(): List<Int> =
   this.map { it.sum() }
@@ -36,3 +37,4 @@ fun main(args: Array<String>) {
     .returnMaxOf(3)
     .also { println("Part Two: Top three with most calories has: $it in total") }
 }
+
