@@ -1,4 +1,4 @@
-package dayTwo
+package BdayTwo
 
 import java.io.File
 
@@ -72,7 +72,7 @@ fun dayTwoPartTwo(input: List<Pair<Char,Char>>): Int? {
 }
 
 fun main(args: Array<String>) {
-  val strategy = readFromFile("src/main/resources/dayTwo/strategy.txt")
+  val strategy = readFromFile("src/main/resources/BdayTwo/strategy.txt")
   println("Part one: ${dayTwoPartOne(strategy)}")
   println("Part two: ${dayTwoPartTwo(strategy)}")
 

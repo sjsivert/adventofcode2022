@@ -1,4 +1,4 @@
-package dayOne
+package AdayOne
 import java.io.File
 
 /**
@@ -23,7 +23,7 @@ fun List<Int>.returnMaxOf(n: Int): Int =
   this.sorted().takeLast(n).sum()
 
 fun main(args: Array<String>) {
-  val bagOfCalories = readFromFile("src/main/resources/dayOne/calories.txt")
+  val bagOfCalories = readFromFile("src/main/resources/AdayOne/calories.txt")
 
   // Part One
   bagOfCalories

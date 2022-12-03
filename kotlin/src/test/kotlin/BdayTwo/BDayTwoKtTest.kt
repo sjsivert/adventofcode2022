@@ -1,9 +1,9 @@
-package dayTwo
+package BdayTwo
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-internal class DayTwoKtTest {
+internal class BDayTwoKtTest {
   @Test
   fun `test something`() {
     assertTrue(true)
