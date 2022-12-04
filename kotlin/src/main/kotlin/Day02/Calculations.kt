@@ -1,5 +1,6 @@
 package Day02
 
+
 fun calculateWinScore(strat: Pair<Shape, Shape>): Int {
   return when  {
     strat == Pair(Shape.Rock, Shape.Paper) -> 6

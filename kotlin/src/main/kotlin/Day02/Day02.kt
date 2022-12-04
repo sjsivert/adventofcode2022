@@ -1,8 +1,10 @@
 package Day02
 
+import Day02.calculateScoreFormula
 import charToShape
 import choseShape
 import readFromFile
+import toTactic
 
 fun dayTwoPartOne(input: List<Pair<Char,Char>>): Int? {
   return input.map {
@@ -16,7 +18,7 @@ fun dayTwoPartTwo(input: List<Pair<Char,Char>>): Int? {
   return input.map {
     Pair(
       charToShape(it.first),
-      choseShape(charToShape(it.first), it.second)
+      choseShape(charToShape(it.first), it.second.toTactic())
     )
   }.sumOf {
     calculateScoreFormula(it)

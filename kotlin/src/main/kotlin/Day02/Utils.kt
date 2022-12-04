@@ -1,3 +1,4 @@
+import Day02.ResultScore
 import Day02.Shape
 import java.io.File
 
@@ -16,16 +17,24 @@ fun charToShape(char: Char): Shape {
   }
 }
 
-fun choseShape(shape: Shape, tactic: Char): Shape {
+fun Char.toTactic(): ResultScore =
+  when(this) {
+    'X' -> ResultScore.Lose
+    'Y' -> ResultScore.Draw
+    'Z' -> ResultScore.Win
+    else -> throw IllegalArgumentException("Invalid tactic")
+  }
+
+fun choseShape(shape: Shape, resultScore: ResultScore): Shape {
   val beatsShapeRules = mapOf(
     Shape.Rock to Shape.Paper,
     Shape.Paper to Shape.Scissor,
     Shape.Scissor to Shape.Rock
   )
-  return when (tactic) {
-    'X' -> beatsShapeRules.entries.associateBy({ it.value }){ it.key }[shape]!!
-    'Y' -> shape
-    'Z' -> beatsShapeRules[shape]!!
-    else -> throw IllegalArgumentException("Invalid tactic")
+  val loseShapeRules = beatsShapeRules.entries.associateBy({ it.value }){ it.key }
+  return when (resultScore) {
+    ResultScore.Lose-> loseShapeRules[shape]!!
+    ResultScore.Draw -> shape
+    ResultScore.Win -> beatsShapeRules[shape]!!
   }
 }

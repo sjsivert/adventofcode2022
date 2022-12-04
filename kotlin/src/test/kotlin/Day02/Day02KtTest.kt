@@ -10,7 +10,7 @@ internal class Day02KtTest {
   }
 
   @Test
-  fun dayTwoPartOne() {
+  fun dayTwoPartOneTest() {
     val input = listOf(
       Pair('A', 'Y'),
       Pair('B', 'X'),
