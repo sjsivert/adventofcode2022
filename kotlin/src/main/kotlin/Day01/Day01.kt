@@ -6,15 +6,16 @@ import java.io.File
  */
 fun readFromFile(fileName: String): List<List<Int>> =
   File(fileName)
-    .readLines()
-    .fold(mutableListOf(mutableListOf<Int>())) { acc, s ->
-      if (s == "") {
-        acc.add(mutableListOf())
-      } else {
-        acc.last().add(s.toInt())
-      }
-      acc
+    .readText()
+    .let {
+      it.split("\n\n")
+      it
     }
+    .let{
+      it.split("\n")
+      it
+    }
+    .map { listOf(it.code) }
 
 fun List<List<Int>>.sumListOfLists(): List<Int> =
   this.map { it.sum() }
