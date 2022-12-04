@@ -11,12 +11,4 @@ fun calculateWinScore(strat: Pair<Shape, Shape>): Int {
 }
 
 fun calculateScoreFormula (strat: Pair<Shape, Shape>): Int =
-  calculateWinScore(strat) + calculateShapeScore(strat.second)
-
-fun calculateShapeScore(shape: Shape): Int {
-  return when (shape) {
-    Shape.Rock -> 1
-    Shape.Paper -> 2
-    Shape.Scissor -> 3
-  }
-}
+  calculateWinScore(strat) + strat.second.points
