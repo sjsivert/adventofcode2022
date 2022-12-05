@@ -20,4 +20,18 @@ internal class Day03KtTest {
 
     assertEquals(157, result)
   }
+  @Test
+  fun dayThreePartOneTwo() {
+    val input = listOf(
+      "vJrwpWtwJgWrhcsFMMfFFhFp" ,
+        "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL" ,
+        "PmmdzqPrVvPwwTWBwg",
+      "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn" ,
+        "ttgJtRGJQctTZtZT" ,
+        "CrZsJsPPZsGzwwsLwLmpwMDw",
+    )
+    val result = dayThreePartTwo(input)
+
+    assertEquals(70, result)
+  }
 }
